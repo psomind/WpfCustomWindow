@@ -1,0 +1,51 @@
+﻿<ccl:CustomChromeWindow x:Class="WpfCustomWindowSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ccl="clr-namespace:CustomChromeLibrary;assembly=CustomChromeLibrary"
+        xmlns:local="clr-namespace:WpfCustomWindowSample"
+        mc:Ignorable="d"
+        x:Name="main"
+        Title="WpfCustomWindow" Height="350" Width="525"
+        Background="Black">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="6"
+            CaptionHeight="25"
+            GlassFrameThickness="-1">
+        </WindowChrome>
+    </WindowChrome.WindowChrome>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!--title bar-->
+        <Border BorderThickness="0" BorderBrush="Black" Margin="{Binding Path=CaptionButtonMargin}">
+            <Border.Background>
+                <SolidColorBrush Color="Gray"/>
+            </Border.Background>
+
+            <!--Window Icon and Title-->
+            <StackPanel Orientation="Horizontal" Margin="0" VerticalAlignment="Top">
+                <ccl:WindowIcon Width="18" Height="18" Margin="7,2,5,0" >
+                    <Image Source="icon.png"/>
+                </ccl:WindowIcon>
+                <TextBlock Text="{Binding ElementName=main, Path=Title, Mode=OneWay}" 
+                           Foreground="White" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <!--min/max/close buttons-->
+        <ccl:CaptionButtons/>
+
+        <Grid Grid.Row="1">
+            <TextBlock Text="This is a sample app." Foreground="White"/>
+        </Grid>
+        
+    </Grid>
+</ccl:CustomChromeWindow>
