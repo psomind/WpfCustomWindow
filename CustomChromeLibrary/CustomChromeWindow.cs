@@ -13,16 +13,19 @@ namespace CustomChromeLibrary
 		protected override void OnStateChanged(EventArgs e)
 		{
 			base.OnStateChanged(e);
-			OnPropertyChanged("CaptionButtonMargin");
+            BorderThickness = (WindowState == System.Windows.WindowState.Maximized)
+                ? new Thickness(8)
+                : new Thickness(1);
+            OnPropertyChanged("CaptionButtonMargin");
 		}
 
 		public Thickness CaptionButtonMargin
 		{
 			get
 			{
-				if (WindowState == System.Windows.WindowState.Maximized)
-					return new Thickness(6, 6, 0, 0); //Margin="0,0,12,0"
-				else
+				//if (WindowState == System.Windows.WindowState.Maximized)
+				//	return new Thickness(6, 6, 0, 0); //Margin="0,0,12,0"
+				//else
 					return new Thickness(0, 0, 0, 0);
 			}
 		}

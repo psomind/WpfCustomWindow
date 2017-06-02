@@ -8,13 +8,14 @@
         mc:Ignorable="d"
         x:Name="main"
         Title="WpfCustomWindow" Height="350" Width="525"
-        Background="Black">
+        Background="Black"
+        BorderThickness="1">
 
     <WindowChrome.WindowChrome>
         <WindowChrome
             ResizeBorderThickness="6"
             CaptionHeight="25"
-            GlassFrameThickness="-1">
+            GlassFrameThickness="1">
         </WindowChrome>
     </WindowChrome.WindowChrome>
     
@@ -41,7 +42,7 @@
         </Border>
 
         <!--min/max/close buttons-->
-        <ccl:CaptionButtons/>
+        <ccl:CaptionButtons VerticalAlignment="Top"/>
 
         <Grid Grid.Row="1">
             <TextBlock Text="This is a sample app." Foreground="White"/>

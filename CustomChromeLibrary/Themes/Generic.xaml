@@ -111,7 +111,9 @@
 	</Style>
 
     <Style TargetType="{x:Type local:CloseButton}" BasedOn="{StaticResource CaptionButtonStyle}" x:Shared="False">
-		<Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="HoverBackground" Value="Red"/>
+        <Setter Property="PressedBackground" Value="#ff6666"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Content">
 			<Setter.Value>
                 <Grid Width="13" Height="12" RenderTransform="1,0,0,1,0,1">
